@@ -6,18 +6,11 @@ import { Button } from "@/components/ui/button"
 
 const letterVariants = {
   hidden: { y: -100, opacity: 0, scale: 1.5 },
-  visible: (i: number) => ({
+  visible: {
     y: 0,
     opacity: 1,
     scale: 1,
-    transition: {
-      delay: i * 0.08,
-      duration: 0.6,
-      type: "spring",
-      stiffness: 100,
-      damping: 10,
-    },
-  }),
+  },
 }
 
 const containerVariants = {
@@ -53,7 +46,16 @@ export function HeroSection() {
               key={i}
               custom={i}
               variants={letterVariants}
-              className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-primary"
+              initial="hidden"
+              animate="visible"
+              transition={{
+                delay: i * 0.08,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+              }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-primary"
               style={{ display: "inline-block" }}
             >
               {letter === " " ? "\u00A0" : letter}
@@ -125,7 +127,7 @@ export function HeroSection() {
           transition={{ delay: 1.6, duration: 0.6 }}
         >
           <Button asChild size="lg" className="group">
-            <a href="/Ahmed_Fahmy_CV.pdf" download>
+            <a href="/Ahmed Mohamed Fahmy.pdf"download target="_blank" rel="noopener noreferrer">
               <Download className="w-4 h-4 mr-2" />
               Download My CV
             </a>
