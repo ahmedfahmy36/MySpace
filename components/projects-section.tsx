@@ -53,13 +53,12 @@ const projects = [
     image: "/3brothers.png",
   },
   {
-    title: "PortfolioV1.0",
+    title: "IAssets",
     description:
-      "My first data showcase portfolio website built to present my skills, projects, and experience as a developer. Features a clean design and responsive layout.",
-    technologies: ["HTML", "CSS", "Tailwind", "JavaScript"],
-    github: "https://github.com/ahmedfahmy36/Ahmed-Fahmy",
-    live: "https://ahmedfahmy36.github.io/Ahmed-Fahmy/",
-    image: "/portfolio.png",
+      "Built a full-stack assets management system for medical facilities and organizations, featuring advanced dashboards, responsive React UIs, and secure Laravel API integration.",
+    technologies: ["React.js", "TypeScript", "Tailwind CSS", "PHP", "Laravel"],
+    live: "https://iassets.intrazero.org/",
+    image: "/iassets.png",
   },
 ];
 
