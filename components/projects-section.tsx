@@ -3,10 +3,47 @@
 import { useState } from "react";
 import { AnimatedSection } from "./animated-section";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, X } from "lucide-react";
+import { ExternalLink, Github, X, CheckCircle2 } from "lucide-react";
 import { SectionTitle } from "./planets";
 
-const projects = [
+interface Project {
+  title: string;
+  subtitle?: string;
+  description: string;
+  technologies: string[];
+  features?: string[];
+  github?: string;
+  live: string;
+  image: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Art Meat & Grill (AMG)",
+    subtitle: "Full-Stack Restaurant Platform & Custom CRM",
+    description:
+      "Developed the complete digital platform for 'Art Meat and Grill (AMG)' from scratch, transforming a static Figma design into a highly dynamic, production-ready web application. Applying Next.js and modern full-stack architecture, engineered both the frontend experience and a robust backend system with custom operations management.",
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "TypeScript",
+      "Tailwind CSS",
+      "i18n",
+    ],
+    features: [
+      "Modern Tech Stack: Built from the ground up utilizing Next.js, Node.js, Express.js, and MongoDB.",
+      "Advanced Custom CRM: Developed a secure backend dashboard featuring strict authentication and robust data validation to manage the platform's operations.",
+      "Built-in Analytics (Tracker System): Integrated a custom tracker system within the CRM dashboard to monitor visitor traffic and log user interactions in real-time.",
+      "Full Localization: Implemented seamless multi-language support (English & Arabic) to serve a diverse customer base.",
+      "Responsive & Pixel-Perfect: Converted complex Figma UI designs into highly responsive layouts optimized for all devices, ensuring flawless rendering of dynamic menus, galleries, and contact forms.",
+      "Rapid Delivery: Successfully completed full-cycle development—from initial codebase setup to live production deployment—in just one week.",
+    ],
+    github: "#",
+    live: "https://artmeat.ae",
+    image: "/artmeat.png",
+  },
   {
     title: "Starwarsgeek",
     description:
@@ -57,6 +94,7 @@ const projects = [
     description:
       "Built a full-stack assets management system for medical facilities and organizations, featuring advanced dashboards, responsive React UIs, and secure Laravel API integration.",
     technologies: ["React.js", "TypeScript", "Tailwind CSS", "PHP", "Laravel"],
+    github: "#",
     live: "https://iassets.intrazero.org/",
     image: "/iassets.png",
   },
@@ -66,7 +104,7 @@ function ProjectModal({
   project,
   onClose,
 }: {
-  project: (typeof projects)[0] | null;
+  project: Project | null;
   onClose: () => void;
 }) {
   if (!project) return null;
@@ -123,13 +161,40 @@ function ProjectModal({
 
           {/* Content */}
           <div className="p-6 sm:p-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-              {project.title}
-            </h3>
+            <div className="mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                {project.title}
+              </h3>
+              {project.subtitle && (
+                <p className="text-primary text-sm sm:text-base font-medium mt-1">
+                  {project.subtitle}
+                </p>
+              )}
+            </div>
 
             <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-6">
               {project.description}
             </p>
+
+            {/* Key Features & Highlights */}
+            {project.features && project.features.length > 0 && (
+              <div className="mb-6">
+                <h4 className="text-xs uppercase tracking-wider text-white/50 mb-3">
+                  Key Features & Highlights
+                </h4>
+                <ul className="space-y-2.5">
+                  {project.features.map((feature, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 text-xs sm:text-sm text-white/80"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Technologies */}
             <div className="mb-6">
@@ -155,7 +220,7 @@ function ProjectModal({
 
             {/* Links */}
             <div className="flex gap-4">
-              {project.github !== "#" && (
+              {project.github && project.github !== "#" && (
                 <a
                   href={project.github}
                   target="_blank"
@@ -189,9 +254,7 @@ function ProjectModal({
 }
 
 export function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState<
-    (typeof projects)[0] | null
-  >(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <>
@@ -213,11 +276,18 @@ export function ProjectsSection() {
                 {/* Card Header */}
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg sm:text-xl font-semibold group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <div className="flex gap-3">
-                      {project.github !== "#" && (
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-semibold group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      {project.subtitle && (
+                        <p className="text-xs text-primary/80 font-medium mt-0.5 line-clamp-1">
+                          {project.subtitle}
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex gap-3 shrink-0 ml-2">
+                      {project.github && project.github !== "#" && (
                         <span className="text-muted-foreground group-hover:text-primary transition-colors">
                           <Github className="w-4 h-4 sm:w-5 sm:h-5" />
                         </span>
