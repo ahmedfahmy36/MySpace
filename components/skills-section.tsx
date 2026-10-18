@@ -36,7 +36,7 @@ function SkillCube({ skill, index }: { skill: (typeof skills)[0]; index: number 
       onTouchEnd={() => setIsHovered(false)}
     >
       <div
-        className="relative w-14 h-14 xs:w-16 xs:h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 cursor-pointer"
+        className="relative w-13 h-13 xs:w-16 xs:h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 2xl:w-24 2xl:h-24 cursor-pointer"
         style={{ perspective: "200px" }}
       >
         <motion.div
@@ -87,10 +87,10 @@ function SkillCube({ skill, index }: { skill: (typeof skills)[0]; index: number 
 export function SkillsSection() {
   return (
     <AnimatedSection id="skills">
-      <div className="max-w-4xl mx-auto px-2 sm:px-0">
+      <div className="max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto px-2 sm:px-0">
         <SectionTitle planet="saturn" number="02" title="Skills" />
 
-        <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-4 md:grid-cols-6 gap-4 xs:gap-5 sm:gap-6 md:gap-8 justify-items-center">
+        <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-4 md:grid-cols-6 gap-3.5 xs:gap-5 sm:gap-6 md:gap-8 2xl:gap-10 justify-items-center">
           {skills.map((skill, index) => (
             <SkillCube key={skill.name} skill={skill} index={index} />
           ))}

@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Send, Phone } from "lucide-react"
 import { SectionTitle } from "./planets"
 import { useState } from "react"
+import { BlackHole } from "./black-hole"
 
 export function ContactSection() {
   const [name, setName] = useState("")
@@ -34,7 +35,7 @@ export function ContactSection() {
 
   return (
     <AnimatedSection id="contact">
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-2xl 2xl:max-w-3xl 3xl:max-w-4xl mx-auto text-center">
         <div className="flex justify-center mb-8">
           <SectionTitle planet="earth" number="05" title="Get In Touch" />
         </div>
@@ -76,14 +77,20 @@ export function ContactSection() {
           </div> */}
         </motion.div>
 
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="space-y-4 mb-6"
-        >
+        <div className="relative overflow-visible">
+          {/* Responsive Black Hole Singularity Background */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none -z-10 w-[min(90vw,480px)] aspect-square flex items-center justify-center opacity-65 sm:opacity-85">
+            <BlackHole />
+          </div>
+
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="space-y-4 mb-6 relative z-10"
+          >
           <div className="text-left">
             <Input
               type="text"
@@ -109,6 +116,7 @@ export function ContactSection() {
             <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </motion.form>
+      </div>
       </div>
     </AnimatedSection>
   )

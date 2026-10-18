@@ -12,6 +12,7 @@ import { Footer } from "@/components/footer"
 import { ScrollRocket } from "@/components/scroll-rocket"
 import { Preloader } from "@/components/preloader"
 import { ExperienceSection } from "@/components/experience-section"
+import { CosmicCursor } from "@/components/cosmic-cursor"
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true)
@@ -22,6 +23,7 @@ export default function HomePage() {
 
       <main className="relative min-h-screen">
         <StarBackground />
+        <CosmicCursor />
         <Navigation />
         <HeroSection />
         <AboutSection />

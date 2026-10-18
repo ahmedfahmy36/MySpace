@@ -17,7 +17,7 @@ export function AnimatedSection({ children, id, className = "" }: AnimatedSectio
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`py-24 px-6 ${className}`}
+      className={`py-16 sm:py-24 2xl:py-32 px-4 sm:px-6 2xl:px-12 overflow-x-clip ${className}`}
     >
       {children}
     </motion.section>

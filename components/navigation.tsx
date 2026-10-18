@@ -47,8 +47,8 @@ export function Navigation() {
         scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : ""
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-        <ul className="flex items-center justify-center gap-4 xs:gap-6 sm:gap-8 md:gap-10 lg:gap-14">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 sm:py-4">
+        <ul className="flex items-center justify-center gap-2.5 xs:gap-5 sm:gap-8 md:gap-10 lg:gap-14">
           {navItems.map((item) => {
             const PlanetIcon = item.planet
             const isActive = activeSection === item.href.slice(1)

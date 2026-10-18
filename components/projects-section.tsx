@@ -259,10 +259,10 @@ export function ProjectsSection() {
   return (
     <>
       <AnimatedSection id="projects">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl 2xl:max-w-7xl 3xl:max-w-[105rem] mx-auto">
           <SectionTitle planet="neptune" number="04" title="Projects" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-4 sm:gap-6 2xl:gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}

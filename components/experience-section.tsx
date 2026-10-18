@@ -24,7 +24,7 @@ const experiences = [
 export function ExperienceSection() {
   return (
     <AnimatedSection id="experience">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto">
         <SectionTitle planet="jupiter" number="03" title="Experience" />
 
         <div className="space-y-6 sm:space-y-8">

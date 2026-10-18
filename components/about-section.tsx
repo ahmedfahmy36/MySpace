@@ -7,7 +7,7 @@ import { SectionTitle } from "./planets"
 export function AboutSection() {
   return (
     <AnimatedSection id="about">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto">
         <SectionTitle planet="mars" number="01" title="About Me" />
 
         <motion.div
@@ -15,7 +15,7 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="space-y-4 leading-relaxed text-sm sm:text-base text-foreground/90"
+          className="space-y-4 leading-relaxed text-sm sm:text-base 2xl:text-lg text-foreground/90"
         >
           <p>
             Frontend Developer specializing in React, Angular and modern JavaScript frameworks with strong skills in

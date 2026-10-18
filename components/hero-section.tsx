@@ -55,7 +55,7 @@ export function HeroSection() {
                 stiffness: 100,
                 damping: 10,
               }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-primary"
+              className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold tracking-tight text-primary"
               style={{ display: "inline-block" }}
             >
               {letter === " " ? "\u00A0" : letter}
@@ -67,7 +67,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="text-base xs:text-lg sm:text-xl md:text-2xl text-foreground font-medium mb-4 sm:mb-6"
+          className="text-base xs:text-lg sm:text-xl md:text-2xl 2xl:text-3xl text-foreground font-medium mb-4 sm:mb-6"
         >
           {title}
         </motion.p>
@@ -76,7 +76,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="text-sm sm:text-base text-muted-foreground max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-6 sm:mb-8 leading-relaxed px-2"
+          className="text-sm sm:text-base 2xl:text-lg text-muted-foreground max-w-xs sm:max-w-md md:max-w-lg 2xl:max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2"
         >
           A dedicated Front-End Developer specializing in building beautiful and functional web applications.
         </motion.p>
