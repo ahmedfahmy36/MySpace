@@ -46,54 +46,90 @@ const projects: Project[] = [
   },
   {
     title: "Starwarsgeek",
+    subtitle: "Interactive Star Wars Universe Explorer",
     description:
       "A StarWars movies website that uses SWAPI to display star wars information as characters, films, planets, vehicles, species and spaceships for the fans of star wars universe.",
     technologies: ["React.js", "CSS", "Bootstrap", "JavaScript"],
+    features: [
+      "SWAPI Integration: Connects to the Star Wars API to query characters, films, starships, vehicles, and planets.",
+      "Interactive Exploration: Dedicated views with search and filtering for an immersive fan experience.",
+      "Responsive Sci-Fi UI: Clean, responsive layout crafted with React.js, CSS, and Bootstrap.",
+    ],
     github: "https://github.com/ahmedfahmy36/Starwarsgeek",
     live: "https://ahmedfahmy36.github.io/Starwarsgeek/",
     image: "/Starwars.png",
   },
   {
     title: "Intrazero",
+    subtitle: "Corporate Portal & High-Performance SSR Website",
     description:
       "Developed and maintained the main company website, focusing on a responsive, high-performance user experience with complex UI/UX designs and strong SEO practices using SSR.",
     technologies: ["Next.js", "React", "TypeScript", "SCSS"],
+    features: [
+      "Next.js & SSR Architecture: Leveraged Server-Side Rendering for fast load times and optimized enterprise SEO.",
+      "Complex UI/UX Implementation: Built pixel-perfect, highly responsive layouts with modular SCSS stylesheets.",
+      "Production Maintenance: Continuously optimized core web vitals, responsiveness, and cross-browser stability.",
+    ],
     github: "#",
     live: "https://www.intrazero.com",
     image: "/intrazero.png",
   },
   {
     title: "Noxe",
+    subtitle: "Trending Movies & TV Shows Discovery Platform",
     description:
       "A comprehensive online library of trending movies, series, and actors. Integrates with a live API to fetch updated content and display features like ratings, similar to IMDB.",
     technologies: ["HTML", "CSS", "Bootstrap", "Angular"],
+    features: [
+      "Real-Time API Integration: Fetches live data for trending movies, series, ratings, and cast members.",
+      "Angular SPA Architecture: Structured component-based frontend with reactive state and routing.",
+      "Rich Media Catalog: In-depth information pages with ratings, trailers, and responsive media grids.",
+    ],
     github: "https://github.com/ahmedfahmy36/Noxe",
     live: "https://ahmedfahmy36.github.io/Noxe/home",
     image: "/noxe.png",
   },
   {
     title: "SVOIMDB",
+    subtitle: "TMDB Movie & Series Browser (SPA)",
     description:
       "A dynamic online movie and series library, integrating with the TMDB API to display trending content and ratings. Built as a performant Single-Page Application.",
     technologies: ["React.js", "Tailwind CSS", "Vite"],
+    features: [
+      "TMDB API Powered: Dynamically pulls and categorizes top-rated, trending, and genre-specific titles.",
+      "High Performance SPA: Built with React.js and Vite for instant page transitions and low latency.",
+      "Tailwind Modern UI: Sleek dark-mode interface with smooth hover interactions and responsive layouts.",
+    ],
     github: "https://github.com/ahmedfahmy36/SVOIMDB",
     live: "https://ahmedfahmy36.github.io/SVOIMDB/",
     image: "/SVOIMDB.png",
   },
   {
     title: "3Brothers",
+    subtitle: "Corporate Showcase & Interactive Product Catalog",
     description:
       "Corporate data show site with responsive design and interactive, filterable product catalog. Features asynchronous form submissions and robust sign-in system.",
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "Laravel"],
+    features: [
+      "Interactive Product Filtering: Dynamic catalog with multi-category search and filtering for product lines.",
+      "Laravel Backend Integration: Robust backend handling asynchronous inquiry forms and user authentication.",
+      "Responsive Showcase: Corporate-grade data presentation optimized across desktop, tablet, and mobile devices.",
+    ],
     github: "#",
     live: "https://www.3-brothers.com/",
     image: "/3brothers.png",
   },
   {
     title: "IAssets",
+    subtitle: "Healthcare & Medical Asset Management System",
     description:
       "Built a full-stack assets management system for medical facilities and organizations, featuring advanced dashboards, responsive React UIs, and secure Laravel API integration.",
     technologies: ["React.js", "TypeScript", "Tailwind CSS", "PHP", "Laravel"],
+    features: [
+      "Asset Lifecycle Tracking: Comprehensive tracking system for medical equipment, allocations, and maintenance.",
+      "Role-Based Dashboards: Secure administrative control with multi-tier user authentication and permissions.",
+      "React & Laravel Architecture: Modern single-page UI backed by scalable RESTful PHP/Laravel endpoints.",
+    ],
     github: "#",
     live: "https://iassets.intrazero.org/",
     image: "/iassets.png",
@@ -160,29 +196,29 @@ function ProjectModal({
           </div>
 
           {/* Content */}
-          <div className="p-6 sm:p-8">
-            <div className="mb-4">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white">
+          <div className="p-4 xs:p-6 sm:p-8">
+            <div className="mb-3 sm:mb-4">
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-bold text-white pr-8">
                 {project.title}
               </h3>
               {project.subtitle && (
-                <p className="text-primary text-sm sm:text-base font-medium mt-1">
+                <p className="text-primary text-xs xs:text-sm sm:text-base font-medium mt-1">
                   {project.subtitle}
                 </p>
               )}
             </div>
 
-            <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-6">
+            <p className="text-white/70 text-xs xs:text-sm sm:text-base leading-relaxed mb-5 sm:mb-6">
               {project.description}
             </p>
 
             {/* Key Features & Highlights */}
             {project.features && project.features.length > 0 && (
-              <div className="mb-6">
-                <h4 className="text-xs uppercase tracking-wider text-white/50 mb-3">
+              <div className="mb-5 sm:mb-6">
+                <h4 className="text-xs uppercase tracking-wider text-white/50 mb-2.5 sm:mb-3">
                   Key Features & Highlights
                 </h4>
-                <ul className="space-y-2.5">
+                <ul className="space-y-2 sm:space-y-2.5">
                   {project.features.map((feature, idx) => (
                     <li
                       key={idx}
@@ -197,15 +233,15 @@ function ProjectModal({
             )}
 
             {/* Technologies */}
-            <div className="mb-6">
-              <h4 className="text-xs uppercase tracking-wider text-white/50 mb-3">
+            <div className="mb-5 sm:mb-6">
+              <h4 className="text-xs uppercase tracking-wider text-white/50 mb-2.5 sm:mb-3">
                 Technologies
               </h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium"
+                    className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium"
                     style={{
                       background: "rgba(255, 255, 255, 0.1)",
                       backdropFilter: "blur(10px)",
@@ -219,13 +255,13 @@ function ProjectModal({
             </div>
 
             {/* Links */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               {project.github && project.github !== "#" && (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
+                  className="flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg text-xs xs:text-sm font-medium transition-all hover:scale-105 flex-1 xs:flex-initial"
                   style={{
                     background: "rgba(255, 255, 255, 0.1)",
                     backdropFilter: "blur(10px)",
@@ -240,7 +276,7 @@ function ProjectModal({
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-primary text-primary-foreground transition-all hover:scale-105 hover:opacity-90"
+                className="flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg text-xs xs:text-sm font-medium bg-primary text-primary-foreground transition-all hover:scale-105 hover:opacity-90 flex-1 xs:flex-initial"
               >
                 <ExternalLink className="w-4 h-4" />
                 Live Demo

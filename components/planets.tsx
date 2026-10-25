@@ -225,12 +225,12 @@ export function SectionTitle({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="text-2xl sm:text-3xl font-bold mb-8 flex items-center gap-3 sm:gap-4"
+      className="text-xl xs:text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center gap-2.5 sm:gap-4"
     >
-      <PlanetComponent size={36} className="shrink-0" />
-      <span className="text-primary font-mono text-base sm:text-xl">{number}.</span>
-      {title}
-      <span className="h-px bg-border flex-1 ml-2 sm:ml-4" />
+      <PlanetComponent size={32} className="shrink-0 w-7 h-7 sm:w-9 sm:h-9" />
+      <span className="text-primary font-mono text-sm sm:text-lg">{number}.</span>
+      <span className="whitespace-nowrap">{title}</span>
+      <span className="h-px bg-border flex-1 ml-2 sm:ml-4 min-w-[20px]" />
     </motion.h2>
   )
 }

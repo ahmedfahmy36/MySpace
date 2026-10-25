@@ -88,6 +88,10 @@ export function ScrollRocket() {
       if (!canvas) return
       width = canvas.width = window.innerWidth
       height = canvas.height = window.innerHeight
+
+      const p = physicsRef.current
+      if (p.x > window.innerWidth - 40) p.x = Math.max(40, window.innerWidth - 50)
+      if (p.y > window.innerHeight - 60) p.y = Math.min(window.innerHeight - 60, window.innerHeight * 0.7)
     }
 
     window.addEventListener("resize", handleResize)

@@ -25,49 +25,58 @@ const containerVariants = {
 }
 
 export function HeroSection() {
-  const name = "Ahmed Fahmy"
+  const nameWords = [
+    { word: "Ahmed", startIndex: 0 },
+    { word: "Fahmy", startIndex: 6 },
+  ]
   const title = "Front-End Developer"
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative px-4 sm:px-6 overflow-hidden">
-      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center relative z-10">
+    <section className="min-h-screen flex flex-col items-center justify-center relative px-3 xs:px-4 sm:px-6 overflow-hidden">
+      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center relative z-10 w-full max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0, duration: 0.6 }}
-          className="text-base sm:text-lg text-muted-foreground mb-2"
+          className="text-xs xs:text-sm sm:text-base md:text-lg text-muted-foreground mb-1.5 sm:mb-3 tracking-wider uppercase font-mono"
         >
           Hello, I'm
         </motion.p>
 
-        <div className="flex justify-center flex-wrap mb-3 sm:mb-4">
-          {name.split("").map((letter, i) => (
-            <motion.span
-              key={i}
-              custom={i}
-              variants={letterVariants}
-              initial="hidden"
-              animate="visible"
-              transition={{
-                delay: i * 0.08,
-                duration: 0.6,
-                type: "spring",
-                stiffness: 100,
-                damping: 10,
-              }}
-              className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold tracking-tight text-primary"
-              style={{ display: "inline-block" }}
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
+        <h1 className="flex flex-wrap justify-center items-center gap-x-3.5 xs:gap-x-5 sm:gap-x-7 md:gap-x-9 mb-3 sm:mb-5">
+          {nameWords.map((item) => (
+            <span key={item.word} className="inline-flex whitespace-nowrap">
+              {item.word.split("").map((letter, idx) => {
+                const i = item.startIndex + idx
+                return (
+                  <motion.span
+                    key={idx}
+                    custom={i}
+                    variants={letterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{
+                      delay: i * 0.08,
+                      duration: 0.6,
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 10,
+                    }}
+                    className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-extrabold tracking-tight text-primary inline-block select-none"
+                  >
+                    {letter}
+                  </motion.span>
+                )
+              })}
+            </span>
           ))}
-        </div>
+        </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="text-base xs:text-lg sm:text-xl md:text-2xl 2xl:text-3xl text-foreground font-medium mb-4 sm:mb-6"
+          className="text-base xs:text-lg sm:text-xl md:text-2xl 2xl:text-3xl text-foreground font-semibold mb-3 sm:mb-5 tracking-tight"
         >
           {title}
         </motion.p>
@@ -76,7 +85,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="text-sm sm:text-base 2xl:text-lg text-muted-foreground max-w-xs sm:max-w-md md:max-w-lg 2xl:max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2"
+          className="text-xs xs:text-sm sm:text-base md:text-lg 2xl:text-xl text-muted-foreground max-w-xs xs:max-w-sm sm:max-w-xl md:max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2"
         >
           A dedicated Front-End Developer specializing in building beautiful and functional web applications.
         </motion.p>
